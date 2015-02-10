@@ -1,0 +1,34 @@
+// Example implementation of the Einstein riddle
+
+rightTo2(L, R, [L,R | _]).
+rightTo2(L, R, [_ | Rest]) 
+	:- rightTo2(L, R, Rest).
+ 
+nextTo2(X, Y, List) :- 
+	rightTo2(X, Y, List).
+nextTo2(X, Y, List) :- 
+	rightTo2(Y, X, List).  
+	
+member2(B,[C|A]):- member3(A,B,C).
+member3(_,A,A).
+member3([C|A],B,_):- member3(A,B,C).
+
+equal2(A,A).
+ 
+einstein(Houses, FishOwner) :-
+   equal2(Houses,[[house,norwegian,_,_,_,_],_,[house,_,_,_,milk,_],_,_]),
+   member2([house,brit,_,_,_,red], Houses),
+   member2([house,swede,dog,_,_,_], Houses),
+   member2([house,dane,_,_,tea,_], Houses),
+   rightTo2([house,_,_,_,_,green], [house,_,_,_,_,white], Houses),
+   member2([house,_,_,_,coffee,green], Houses),
+   member2([house,_,bird,pallmall,_,_], Houses),
+   member2([house,_,_,dunhill,_,yellow], Houses),
+   nextTo2([house,_,_,dunhill,_,_], [house,_,horse,_,_,_], Houses),
+   member2([house,_,_,_,milk,_],Houses),
+   nextTo2([house,_,_,marlboro,_,_], [house,_,cat,_,_,_], Houses),
+   nextTo2([house,_,_,marlboro,_,_], [house,_,_,_,water,_], Houses),
+   member2([house,_,_,winfield,beer,_], Houses),
+   member2([house,german,_,rothmans,_,_], Houses),
+   nextTo2([house,norwegian,_,_,_,_], [house,_,_,_,_,blue], Houses),
+   member2([house,FishOwner,fish,_,_,_], Houses).

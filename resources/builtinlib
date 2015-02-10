@@ -1,0 +1,9 @@
+findall_result([]).
+findall(X,Y,Z):- Y, findall_result(I), retract(findall_result(I)), assert(findall_result([X|I])), fail.
+findall(X,Y,Z):- findall_result(Z), retract(findall_result(Z)), assert(findall_result([])).
+
+not(X):- X, !, fail.
+not(_).
+
+retractall(X):- X, retract(X), fail.
+retractall(_).

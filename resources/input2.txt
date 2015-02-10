@@ -1,0 +1,31 @@
+// A testfile
+
+a(1).
+
+b(1).
+b(2).
+
+c(1).
+c(2).
+
+d(1).
+d(2).
+d(3).
+
+e(1).
+e(2).
+e(3).
+
+f(1).
+f(2).
+f(3).
+
+f:-!.
+
+testretract :-
+	retract(a(1)),
+	retract(b(1)),
+	retract(c(2)),
+	retract(d(1)),
+	retract(e(2)),
+	retract(f(3)).
