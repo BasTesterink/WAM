@@ -8,13 +8,13 @@ public class OOPrologMain {
 	
 	public static void main(String[] args){
 		OOPrologMain m = new OOPrologMain();
-		m.test1();
+		m.test2();
 	}
 
 	public void test2(){
 		prolog.activateDebugMode();
 		prolog.loadFile("./resources/input2.txt"); 
-		prolog.setQuery("?- f(Y),not(c(Y))."); 
+		prolog.setQuery("?- q(A,B)."); 
 	}
 	
 	public void test1(){ 

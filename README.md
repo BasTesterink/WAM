@@ -17,3 +17,7 @@ Package overview:
 * runtime: The execution environment of the WAM. Here are all instructions executed and is the code stored.
 
 I welcome anybody to improve the source. 
+
+Demo:
+
+Clone the repository and run the demo jar file using "java -jar demo.jar". It will launch the GUI, load resources/input2.txt, and query "q(A,B)". 
